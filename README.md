@@ -1,6 +1,6 @@
 # E-Commerce-System-Analysis-Document--SAD
 
-This repository contains the **functional analysis**, **UML diagrams**, and **high - level technical documentation** for an E-Commerce system based on a clean, requirements-driven workflow.
+This repository contains the **functional analysis**, **UML diagrams**, and **high - level technical documentation** for an E-Commerce web application.
 
 The goal of this project is to build the system **incrementally**, using a  
 _User Story → Requirements → Flowchart → Sequence Diagram → Implementation_ approach.
@@ -12,12 +12,13 @@ It focuses exclusively on documenting how the system should work.
 
 ## 📌 Project Purpose
 
-This project exists to:
+> This project is revesion for the system analysis part in a mentorship program.
+> This project exists to:
 
 - Break down each user story into **clear technical workflows**.
 - Produce **flowcharts, sequence diagrams, pseudocode**.
 
-It acts as the “source of truth” for:
+> It acts as the **source of truth** for:
 
 - System behavior
 - Business logic
@@ -30,7 +31,7 @@ It acts as the “source of truth” for:
 
 Database design is stored **in a separate dedicated repository**:
 
-👉 [!E-Commerce Database Design](https://github.com/AbdallaSamirKhalifa/E-Commerce-DB-Design)
+👉 [E-Commerce Database Design](https://github.com/AbdallaSamirKhalifa/E-Commerce-DB-Design)
 
 That repo contains:
 
@@ -38,6 +39,8 @@ That repo contains:
 - PostgreSQL schema
 - Constraints, relationships, checks
 - Iterative improvements
+- Test date
+- Sample queries and outputs
 
 ---
 
