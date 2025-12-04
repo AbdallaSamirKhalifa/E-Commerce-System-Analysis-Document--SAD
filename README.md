@@ -13,7 +13,8 @@ It focuses exclusively on documenting how the system should work.
 ## 📌 Project Purpose
 
 > This project is revesion for the system analysis part in a mentorship program.
-> This project exists to:
+
+### This project exists to:
 
 - Break down each user story into **clear technical workflows**.
 - Produce **flowcharts, sequence diagrams, pseudocode**.

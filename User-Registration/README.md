@@ -1,7 +1,7 @@
-# User Story 001: [User Registration]
+# User Story 001: User Registration
 
 **ID:** US-001  
-**Role:** [New Visitor]
+**Role:** New Visitor
 
 ---
 
@@ -28,7 +28,7 @@ Specific conditions that must be met for this user story to be considered comple
 
 ## Flowchart
 
-High-level visual representation of the process:
+### High-level visual representation of the process:
 
 <div align=center>
 
@@ -38,7 +38,7 @@ High-level visual representation of the process:
 
 ## Sequence Diagram
 
-Illustrates the step-by-step interaction between actors and the system:
+### Illustrates the step-by-step interaction between actors and the system:
 
 <div align=center>
 

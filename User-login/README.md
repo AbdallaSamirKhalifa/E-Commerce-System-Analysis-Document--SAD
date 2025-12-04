@@ -1,4 +1,4 @@
-# User Story 001: [User Registration]
+# User Story 002: User Login
 
 **ID:** US-002  
 **Role:** Registered Customer
@@ -28,7 +28,7 @@ Specific conditions that must be met for this user story to be considered comple
 
 ## Flowchart
 
-High-level visual representation of the process:
+### High-level visual representation of the process:
 
 <div align=center>
 
@@ -38,7 +38,7 @@ High-level visual representation of the process:
 
 ## Sequence Diagram
 
-Illustrates the step-by-step interaction between actors and the system:
+### Illustrates the step-by-step interaction between actors and the system:
 
 <div align=center>
 
