@@ -30,17 +30,21 @@ Specific conditions that must be met for this user story to be considered comple
 
 High-level visual representation of the process:
 
+<div align=center>
+
 ![Flowchart](./flowchart.png)
 
----
+</div>
 
 ## Sequence Diagram
 
 Illustrates the step-by-step interaction between actors and the system:
 
+<div align=center>
+
 ![Sequence Diagram](./sequence-diagram.png)
 
----
+</div>
 
 ## Pseudocode
 
