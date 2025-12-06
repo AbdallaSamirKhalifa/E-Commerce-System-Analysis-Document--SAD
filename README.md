@@ -43,24 +43,37 @@ Providing customers with easy access to quality products while enabling business
 
 ---
 
-## 🗄 Related Repository — Database Design (ERD + SQL Schema)
+## Database Schema
 
-Database design is stored **in a separate dedicated repository**:
+![Database Schema](./DB-Schema.png)
 
-👉 [E-Commerce Database Design](https://github.com/AbdallaSamirKhalifa/E-Commerce-DB-Design)
+## Schema Overview
 
-That repo contains:
+- **User**: Base entity for all platform users (Admins & Customers).
+- **Admin**: Extends User, includes a `Role`. Responsible for product/category management.
+- **Customer**: Extends User, places orders.
+- **Product**: Stores product info, linked to Category and Admin (creator).
+- **Category**: Lookup table for product categories.
+- **Order**: Customer orders, containing total amount, date, and status.
+- **Order_Details**: Junction table between Orders and Products (Qty + Unit Price).
+- **Pending**: Tracks pending items before deletion (Also could be considered denormalized table).
+- **Order_History**: **Denormalized table** storing full order summaries with a JSONB field for products.
 
-- ERD diagrams
-- PostgreSQL schema
-- Constraints, relationships, checks
-- Iterative improvements
-- Test date
-- Sample queries and outputs
+## Denormalization Note
+
+The `Order_History` table is intentionally **denormalized** to optimize read performance and simplify reporting.  
+It stores:
+
+- Customer full name
+- Total amount
+- Order date
+- Products as **JSONB**
+
+This reduces JOIN operations and speeds up historical order retrieval.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 The project is structured by **User Stories**, each in its own folder with its own README file.
 
