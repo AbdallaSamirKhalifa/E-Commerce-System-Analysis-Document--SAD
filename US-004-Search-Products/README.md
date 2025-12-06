@@ -1,6 +1,6 @@
-# User Story 007: Search Products
+# User Story 004: Search Products
 
-**ID:** US-007  
+**ID:** US-004
 **Role:** Customer
 
 ---

@@ -1,6 +1,6 @@
 <h1 align=center>
 
-US-009.2-Diagrams & Pseudocode
+US-005.1-Diagrams & Pseudocode
 
 </h1>
 
@@ -27,7 +27,7 @@ US-009.2-Diagrams & Pseudocode
 ## Pseudocode
 
 ```text
-function editProduct(Product:product){
+function createNewProduct(Product:product){
     if(product.price < 0)
         return "Price cannot be less than zero";
 
@@ -37,9 +37,9 @@ function editProduct(Product:product){
     if(isValidImage(product.image))
         return "Invalid image";
 
-    editProduct(product); // DB Call where we also validate product's info
+    addNewProduct(product); // DB Call where we also validate product's info
 
-    return "Product udpated successfully";
+    return "Product added successfully";
 }
 
 function isValidImage(image){

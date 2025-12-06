@@ -1,6 +1,6 @@
-# User Story 009: Password Recovery
+# User Story 005: Password Recovery
 
-**ID:** US-009  
+**ID:** US-005
 **Role:** Administrator
 
 ---
@@ -36,7 +36,7 @@ Specific conditions that must be met for this user story to be considered comple
 
 ---
 
-## US-009.1: Create New Product
+## US-005.1: Create New Product
 
 ### Administrator can create new product.
 
@@ -44,7 +44,7 @@ Specific conditions that must be met for this user story to be considered comple
 
 ---
 
-## US-009.2: Edit Product
+## US-005.2: Edit Product
 
 ### Administrator can edit product details.
 
@@ -52,7 +52,7 @@ Specific conditions that must be met for this user story to be considered comple
 
 ---
 
-## US-009.3: Delete Product
+## US-005.3: Delete Product
 
 ### Admin can delete products (soft delete - mark as inactive)
 
