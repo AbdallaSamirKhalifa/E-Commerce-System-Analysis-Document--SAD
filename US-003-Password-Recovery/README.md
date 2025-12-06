@@ -1,4 +1,4 @@
-# User Story 001: Password Recovery
+# User Story 003: Password Recovery
 
 **ID:** US-003  
 **Role:** Registered Customer
