@@ -40,6 +40,14 @@ Specific conditions that must be met for this user story to be considered comple
 
 ### Administrator can create new product.
 
-[Add New Product](./Create-New-Product/)
+[Create New Product](./Create-New-Product/)
+
+---
+
+## US-009.2: Edit Product
+
+### Administrator can edit product details.
+
+[Update Product](./Edit-Product/)
 
 ---
