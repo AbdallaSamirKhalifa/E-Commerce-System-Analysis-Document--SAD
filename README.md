@@ -28,6 +28,21 @@ It focuses exclusively on documenting how the system should work.
 
 ---
 
+## Vision
+
+Becoming the leading e-commerce platform the delivers exceptional shopping experience through innovative technology, personalized service and reliable delivery while empowering business with powerful tools for growth.
+Providing customers with easy access to quality products while enabling business to efficiently manage their operation and scale their growth.
+
+---
+
+## User Roles
+
+- Visitor
+- Registered Customer
+- Administrator
+
+---
+
 ## 🗄 Related Repository — Database Design (ERD + SQL Schema)
 
 Database design is stored **in a separate dedicated repository**:
