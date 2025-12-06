@@ -51,3 +51,11 @@ Specific conditions that must be met for this user story to be considered comple
 [Update Product](./Edit-Product/)
 
 ---
+
+## US-009.3: Delete Product
+
+### Admin can delete products (soft delete - mark as inactive)
+
+[Delete Product](./Delete-Product/)
+
+> Products in pending orders cannot be deleted.
