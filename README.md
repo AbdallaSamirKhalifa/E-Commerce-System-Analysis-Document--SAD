@@ -73,9 +73,320 @@ This reduces JOIN operations and speeds up historical order retrieval.
 
 ---
 
-## Project Structure
+<div align=center>
 
-The project is structured by **User Stories**, each in its own folder with its own README file.
+## Flowcharts & Sequence Diagrams & pseudooce
+
+</div>
+
+### [US-001 User Registration](./US-001-User-Registration/)
+
+#### Flowchart
+
+<div align=center>
+
+![flowchart](./US-001-User-Registration/flowchart.png)
+
+</div>
+
+#### Sequence Diagram
+
+<div align=center>
+
+![flowchart](./US-001-User-Registration/sequence-diagram.png)
+
+</div>
+
+#### Pseudocode
+
+```text
+function void manageUserRegistration(userInfo){
+    if(!isValidInputs(userInfo))
+        Throw new Error("Invalid data!")
+
+    @async mailUser(userInfo.email);
+    saveToDatabase(userInfo);
+}
+function boolean isValidInputs(userInfo){
+    if(userInof.firstName.isEmpty())
+        return false;
+
+    if(userInof.lastName.isEmpty())
+        return false;
+
+    if(!isValidEmailFormat(userInof.email))
+        return false;
+
+    if(!isValidPassword(userInfo.password))
+        return falsel;
+
+    return true;
+
+
+}
+
+```
+
+---
+
+### [US-002 User Login](./US-002-User-login/)
+
+#### Flowchart
+
+<div align=center>
+
+![flowchart](./US-002-User-login/flowchart.png)
+
+</div>
+
+#### Sequence Diagram
+
+<div align=center>
+
+![flowchart](./US-002-User-login/sequence-diagram.png)
+
+</div>
+
+#### Pseudocode
+
+```text
+function string authenticateCustomer(custCredentials){
+    Customer customer = findCustomer(custCredentials); // DB call
+
+    if customer is null // means not found (invalid email or password)
+        Throw new Error("Invalid Email or Password");
+
+    if customer choosed Remember Me option
+        return session valid for 30 days
+
+    return session valid for 24 hours;
+}
+```
+
+---
+
+### [US-003 Password Recovery](./US-003-Password-Recovery/)
+
+#### Flowchart
+
+<div align=center>
+
+![flowchart](./US-003-Password-Recovery/flowchart.png)
+
+</div>
+
+#### Sequence Diagram
+
+<div align=center>
+
+![flowchart](./US-003-Password-Recovery/sequence-diagram.png)
+
+</div>
+
+#### Pseudocode
+
+```text
+function getPasswordResetLink(userEmail){
+    if(!userExists(userEmail))
+        return "User not found";
+
+    Token token=new Token();
+    token.expirationDate(currentTime + 1);
+
+    saveResetPasswordToken(token, email); // DB call
+    @async sendResetPasswordLink(userEmail, token); // we should have a background worker to check if the email is sent successfully.
+
+    return "Email sent please check your inbox";
+}
+
+function resetPassword(newPassword, userEmail, token){
+
+    if (isTokenExpired(token))
+        return "expired token";
+
+    if(!isValidPasswordFormat(newPassword))
+        return "Invalid password format";
+
+
+    updatePassword(userEmail, newPassword); // DB call it also invalidates the old password / the password should be hashed using SHA256 algorithm.
+    invalidateToken(token);
+
+   logPasswordChangeEevent(userEmail);
+   @async sendConfirmationMail(userEmail); // will be checked by the background worker.
+
+    return "Password changed successfully";
+}
+
+```
+
+---
+
+### [US-004 Search Products](./US-004-Search-Products/)
+
+#### Flowchart
+
+<div align=center>
+
+![flowchart](./US-004-Search-Products/flowchart.png)
+
+</div>
+
+#### Sequence Diagram
+
+<div align=center>
+
+![flowchart](./US-004-Search-Products/sequence-diagram.png)
+
+</div>
+
+#### Pseudocode
+
+```text
+function searchProducts(keywords){
+    if(keywords.length()<2)
+        return;
+
+    list<Products> products=findRelevantProducts(keywords) // DB call
+
+    if(products==null)
+        return "No results found";
+
+    return products;
+
+}
+```
+
+---
+
+### [US-005 Manage Products](./US-005-Manage-Products/)
+
+### [US-005.1 Create New Product](./US-005-Manage-Products/Create-New-Product/)
+
+#### Flowchart
+
+<div align=center>
+
+![flowchart](./US-005-Manage-Products/Create-New-Product/flowchart.png)
+
+</div>
+
+#### Sequence Diagram
+
+<div align=center>
+
+![flowchart](./US-005-Manage-Products/Create-New-Product/sequence-diagram.png)
+
+</div>
+
+#### Pseudocode
+
+```text
+function createNewProduct(Product:product){
+    if(product.price < 0)
+        return "Price cannot be less than zero";
+
+    if(product.quantity < 0)
+    return "Quantity cannot be less than zero";
+
+    if(isValidImage(product.image))
+        return "Invalid image";
+
+    addNewProduct(product); // DB Call where we also validate product's info
+
+    return "Product added successfully";
+}
+
+function isValidImage(image){
+    if(image.size > 5MP)
+        return false;
+
+    if(image.extention != PNG or JPG)
+        return false;
+
+    return true;
+}
+```
+
+---
+
+### [US-005.2 Edit Product](./US-005-Manage-Products/Edit-Product/)
+
+#### Flowchart
+
+<div align=center>
+
+![flowchart](./US-005-Manage-Products/Edit-Product/flowchart.png)
+
+</div>
+
+#### Sequence Diagram
+
+<div align=center>
+
+![flowchart](./US-005-Manage-Products/Edit-Product/sequence-diagram.png)
+
+</div>
+
+#### Pseudocode
+
+```text
+function editProduct(Product:product){
+    if(product.price < 0)
+        return "Price cannot be less than zero";
+
+    if(product.quantity < 0)
+    return "Quantity cannot be less than zero";
+
+    if(isValidImage(product.image))
+        return "Invalid image";
+
+    editProduct(product); // DB Call where we also validate product's info
+
+    return "Product udpated successfully";
+}
+
+function isValidImage(image){
+    if(image.size > 5MP)
+        return false;
+
+    if(image.extention != PNG or JPG)
+        return false;
+
+    return true;
+}
+```
+
+---
+
+### [US-005.3 Delete Product](./US-005-Manage-Products/Delete-Product/)
+
+#### Flowchart
+
+<div align=center>
+
+![flowchart](./US-005-Manage-Products/Delete-Product/flowchart.png)
+
+</div>
+
+#### Sequence Diagram
+
+<div align=center>
+
+![flowchart](./US-005-Manage-Products/Delete-Product/sequence-diagram.png)
+
+</div>
+
+#### Pseudocode
+
+```text
+function deletePrduct(productId){
+    if(!deactivateProduct(productId)) // DB transaction checks if product in pending order before deactivating
+        return "This product cannot be deleted";
+
+    return "Product deleted successfully"
+}
+
+```
 
 ---
 
