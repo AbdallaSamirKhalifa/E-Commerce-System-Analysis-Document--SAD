@@ -49,14 +49,14 @@ Specific conditions that must be met for this user story to be considered comple
 ## Pseudocode
 
 ```text
-function void manageUserRegistration(userInfo){
+function  manageUserRegistration(userInfo){
     if(!isValidInputs(userInfo))
-        Throw new Error("Invalid data!")
+        return "Invalid data!";
 
-    @async mailUser(userInfo.email);
     saveToDatabase(userInfo);
+    @async mailUser(userInfo.email);
 }
-function boolean isValidInputs(userInfo){
+function isValidInputs(userInfo){
     if(userInof.firstName.isEmpty())
         return false;
 

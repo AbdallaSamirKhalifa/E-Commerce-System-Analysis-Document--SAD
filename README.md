@@ -52,12 +52,14 @@ Providing customers with easy access to quality products while enabling business
 - **User**: Base entity for all platform users (Admins & Customers).
 - **Admin**: Extends User, includes a `Role`. Responsible for product/category management.
 - **Customer**: Extends User, places orders.
+- **Address**: Stores multiple addresses for each customer (billing/shipping).
 - **Product**: Stores product info, linked to Category and Admin (creator).
 - **Category**: Lookup table for product categories.
-- **Order**: Customer orders, containing total amount, date, and status.
-- **Order_Details**: Junction table between Orders and Products (Qty + Unit Price).
-- **Pending**: Tracks pending items before deletion (Also could be considered denormalized table).
+- **Orders**: Customer orders, containing total amount, date, and status.
+- **Order_Details**: Assotiative entity between Orders and Products (Qty + Unit Price), order status is denormalized for fast lookup before product deletion.
 - **Order_History**: **Denormalized table** storing full order summaries with a JSONB field for products.
+- **Refresh_Tokens**: Stores refresh tokens for authenticated users, used for session management and token renewal.
+- **Password_Reset_Token**: Stores password reset tokens.
 
 ## Denormalization Note
 
@@ -100,14 +102,14 @@ This reduces JOIN operations and speeds up historical order retrieval.
 #### Pseudocode
 
 ```text
-function void manageUserRegistration(userInfo){
+function  manageUserRegistration(userInfo){
     if(!isValidInputs(userInfo))
-        Throw new Error("Invalid data!")
+        return "Invalid data!";
 
-    @async mailUser(userInfo.email);
     saveToDatabase(userInfo);
+    @async mailUser(userInfo.email);
 }
-function boolean isValidInputs(userInfo){
+function isValidInputs(userInfo){
     if(userInof.firstName.isEmpty())
         return false;
 
@@ -154,7 +156,7 @@ function string authenticateCustomer(custCredentials){
     Customer customer = findCustomer(custCredentials); // DB call
 
     if customer is null // means not found (invalid email or password)
-        Throw new Error("Invalid Email or Password");
+        return "Invalid Email or Password";
 
     if customer choosed Remember Me option
         return session valid for 30 days
