@@ -57,7 +57,7 @@ Providing customers with easy access to quality products while enabling business
 - **Category**: Lookup table for product categories.
 - **Orders**: Customer orders, containing total amount, date, and status.
 - **Order_Details**: Assotiative entity between Orders and Products (Qty + Unit Price), order status is denormalized for fast lookup before product deletion.
-- **Order_History**: **Denormalized table** storing full order summaries with a JSONB field for products.
+- **Order_History**: **Denormalized table** storing full order summaries to reduce joins between tables.
 - **Refresh_Tokens**: Stores refresh tokens for authenticated users, used for session management and token renewal.
 - **Password_Reset_Token**: Stores password reset tokens.
 
